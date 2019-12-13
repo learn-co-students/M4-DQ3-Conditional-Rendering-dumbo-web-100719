@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
 
-const MenuBar = (props) => {
-
+const MenuBar = props => {
   /*
 
   The 'a' tags below are the menu items. Think about the way a menu 
@@ -12,27 +11,51 @@ const MenuBar = (props) => {
   this component be made aware of what is currently the active menu item?
 
   */
+  const handleMenuOptionClick = e => {
+    props.renderPage(e.target.id);
+  };
 
   return (
     <div className="ui four item menu">
-      <a className="item active" id="profile">
-        <i className="user large icon" id="profile"/>
+      <a
+        className={
+          "item " + (props.pageSelected === "profile" ? "active" : null)
+        }
+        id="profile"
+        onClick={handleMenuOptionClick}
+      >
+        <i className="user large icon" id="profile" />
       </a>
 
-      <a className="item" id="photo">
-        <i className="photo large icon" id="photo"/>
+      <a
+        className={"item " + (props.pageSelected === "photo" ? "active" : null)}
+        id="photo"
+        onClick={handleMenuOptionClick}
+      >
+        <i className="photo large icon" id="photo" />
       </a>
 
-      <a className="item" id="cocktail">
-        <i className="cocktail large icon" id="cocktail"/>
+      <a
+        className={
+          "item " + (props.pageSelected === "cocktail" ? "active" : null)
+        }
+        id="cocktail"
+        onClick={handleMenuOptionClick}
+      >
+        <i className="cocktail large icon" id="cocktail" />
       </a>
 
-      <a className="item" id="pokemon"> 
-        <i className=" themeisle large icon" id="pokemon"/>
+      <a
+        className={
+          "item " + (props.pageSelected === "pokemon" ? "active" : null)
+        }
+        id="pokemon"
+        onClick={handleMenuOptionClick}
+      >
+        <i className=" themeisle large icon" id="pokemon" />
       </a>
     </div>
-  )
+  );
+};
 
-}
-
-export default MenuBar
+export default MenuBar;
